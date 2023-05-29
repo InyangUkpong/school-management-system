@@ -83,7 +83,6 @@ Lagos waste management
 List any similar products or solutions that currently exist.
 For each item in the list, explain similarities and differences -->
 
----
 
 ## Available Scripts
 
