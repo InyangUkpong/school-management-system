@@ -33,19 +33,33 @@ class StudentInfo(models.Model):
         ("male", "Male"),
         ("Female", "Female"),
     )
+    
+    class_type_choice =(
+        ("software", "Software Engineering"),
+        ("data analytics", "Data Analytics"),
+        ("aws cloud", "AWS Cloud Practitioner"),
+    )
+    
+    section_type_choice= (
+        ("cohort 5", "Cohort 5"),
+        ("cohort 6", "Cohort 6"),
+        ("cohort 7", "Cohort 7"),
+        ("cohort 8", "Cohort 8"),
+        ("cohort 9", "Cohort 9"),
+    )
     gender = models.CharField(choices=gender_choice, max_length=10)
-    class_type = models.ForeignKey(StudentClassInfo, on_delete=models.CASCADE)
-    section_type = models.ForeignKey(StudentSectionInfo, on_delete=models.CASCADE)
+    class_type = models.CharField(choices=class_type_choice, max_length=30)
+    section_type = models.CharField(choices=section_type_choice, max_length=30)
     shift_type = models.ForeignKey(StudentShiftInfo, on_delete=models.CASCADE)
     student_img = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    fathers_name = models.CharField(max_length=100)
-    fathers_img = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    fathers_nid = models.IntegerField(unique=True)
-    fathers_number = models.IntegerField(unique=True)
-    mothers_name = models.CharField(max_length=100)
-    mothers_img = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    mothers_nid = models.IntegerField(unique=True)
-    mothers_number = models.IntegerField()
+    fathers_name = models.CharField(max_length=100, null=True, blank=True)
+    fathers_img = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    fathers_nid = models.IntegerField(unique=True, null=True, blank=True)
+    fathers_number = models.IntegerField(unique=True, null=True, blank=True)
+    mothers_name = models.CharField(max_length=100, null=True, blank=True)
+    mothers_img = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    mothers_nid = models.IntegerField(unique=True, null=True, blank=True)
+    mothers_number = models.IntegerField(null=True, blank=True)
 
     class Meta:
         unique_together = ["admission_id", "class_type"]

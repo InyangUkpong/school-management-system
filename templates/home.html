@@ -1,6 +1,87 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
+
+{% load static %}
 {% block content %}
+{% comment %} {% include 'partials/_alerts.html' %} {% endcomment %}
+<main>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-3 mx-3">{{username}}</h2>
+        <img class="mx-4 rounded-circle d-flex align-content-center justify-content-center" style="width: 100px; height: 100px; background-color: gray; object-fit:cover;" src="https://img.freepik.com/premium-photo/happy-african-american-businesswoman-with-positive-smile-has-crisp-dark-hair-rejoices-having-weekend-good-rest-after-hard-working-exhausting-week-isolated-lavender-wall_580432-151.jpg?w=2000">
+    </div>
+<section class="d-flex m-2 justify-content-between mx-3">
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Grades</div>
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Courses</div>
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Projects</div>
+</section>
+
+<section class="d-flex m-2 justify-content-between mx-3">
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Inbox</div>
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Tasks</div>
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Calendar</div>
+</section>
+
+<section class="d-flex m-2 justify-content-between mx-3">
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Alumni</div>
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Tutorials</div>
+    <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Captain's Log</div>
+</section>
+
+<div class="col-4 mx-auto">
+    <h3>Ratio of male to female students</h3>
+    <canvas id="myChart"></canvas>
+</div>
+
+
+
+
+</main>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // Get the canvas element
+
+    // Create the chart
+    var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Female', 'Male'], // Replace with your own labels
+        datasets: [{
+        label: 'Data',
+        data: [{{males_perc}}, {{females_perc}}], // Replace with your own data
+        backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 205, 86, 0.5)'], // Replace with your own colors
+        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 205, 86, 1)'], // Replace with your own colors
+        borderWidth: 1
+        }]
+    },
+    options: {
+        // Specify chart options here
+    }
+    });
+    // Set the width and height of the canvas element
+    ctx.canvas.width = 100;
+    ctx.canvas.height = 100;
+
+</script>
 
 {% endblock %}
+
+<!--    new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });  -->
