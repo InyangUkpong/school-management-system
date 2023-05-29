@@ -15,8 +15,8 @@ School Management System (SMS) is a web application that has an interactive dash
 ## Team Members
 
 [Inyang Ukpong](github.com/InyangUkpong) : Backend + Front End
-Oghenekome Igho: Backend
-Joseph Bamisaye: Front-End
+[Oghenekome Igho](github.com/meetkome) : Backend
+[Joseph Bamisaye](github.com/Joethesaint) : Front-End
 Alphonsus Oshiole: Frontend
 Each member is more comfortable with the roles
 
@@ -31,8 +31,7 @@ Each member is more comfortable with the roles
 - SQlite
 
 ---
-
-## Packages/Dependencies used
+<!-- ## Packages/Dependencies used
 
 - react-router-dom
 - react-slick
@@ -43,7 +42,7 @@ Each member is more comfortable with the roles
 - reduxjs/toolkit
 - fontawesome
 
----
+--- -->
 
 <!-- ## Challenge statement
 
