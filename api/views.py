@@ -25,10 +25,10 @@ class StudentAttendance(APIView):
     def get(self, request, student_class, student_id):
         try:
             Attendance.objects.create_attendance(student_class, student_id)
-            return Response({"Status": "Atendance Counted Successfully"}, status=status.HTTP_200_OK)
+            return Response({"Status": "Attendance Created Successfully"}, status=status.HTTP_200_OK)
         except Exception as err:
             print(err)
-            return Response({"Status": "Attendance already has taken"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"Status": "Attendance has already been taken"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ResultInfo(APIView):
