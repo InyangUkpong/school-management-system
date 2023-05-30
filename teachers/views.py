@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 def teacher_list(request):
     teachers = TeacherInfo.objects.all()
 
-    paginator = Paginator(teachers, 1)
+    paginator = Paginator(teachers, 10)
     page = request.GET.get('page')
     paged_teachers = paginator.get_page(page)
     context = {

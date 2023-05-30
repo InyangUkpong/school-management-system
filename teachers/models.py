@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class TeacherDeptInfo(models.Model):
@@ -17,12 +18,13 @@ class TeacherInfo(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     age = models.IntegerField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     gender_choice = (
         ("male", "Male"),
         ("Female", "Female"),
     )
     gender = models.CharField(choices=gender_choice, max_length=10)
-    teacher_img = models.ImageField(upload_to='photos/%Y/%m/%d/')
+    teacher_img = models.ImageField(upload_to='uploads/')
     passing_year = models.CharField(max_length=100)
     joining_date = models.DateField()
     dept_type = models.ForeignKey(TeacherDeptInfo, on_delete=models.CASCADE)

@@ -8,7 +8,8 @@
 <main>
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="mb-3 mx-3">{{username}}</h2>
-        <img class="mx-4 rounded-circle d-flex align-content-center justify-content-center" style="width: 100px; height: 100px; background-color: gray; object-fit:cover;" src="https://img.freepik.com/premium-photo/happy-african-american-businesswoman-with-positive-smile-has-crisp-dark-hair-rejoices-having-weekend-good-rest-after-hard-working-exhausting-week-isolated-lavender-wall_580432-151.jpg?w=2000">
+        <img class="mx-4 rounded-circle d-flex align-content-center justify-content-center" style="width: 100px; height: 100px; background-color: gray; object-fit:contain;" src="{{teacher_pic}}">
+        
     </div>
 <section class="d-flex m-2 justify-content-between mx-3">
     <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Grades</div>
@@ -28,10 +29,25 @@
     <div class="card p-4 col-3" style="border-radius:10px; background-color: #b9dad9;">Captain's Log</div>
 </section>
 
-<div class="col-4 mx-auto">
-    <h3>Ratio of male to female students</h3>
-    <canvas id="myChart"></canvas>
+<div class="col-8 mx-auto d-flex justify-content-between gap-4">
+    <div class="" style="margin-left: 15px;">
+        <h3>Ratio of male to female students</h3>
+        <canvas id="myChart"></canvas>
+    </div>
+    <div>
+        <h3>Ratio of male to female teachers</h3>
+        <canvas id="myChart2"></canvas>
+    </div>
 </div>
+<div class="col-8 mx-auto">
+    <center><h3>Bar chart of cohort attendance</h3></center>
+    <canvas id="myChart3"></canvas>
+</div>
+
+{% comment %} <div class="col-4 mx-auto">
+    <h3>Ratio of male to female teachers</h3>
+    <canvas id="myChart2"></canvas>
+</div> {% endcomment %}
 
 
 
@@ -39,7 +55,8 @@
 </main>
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
-
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+    var ctx3 = document.getElementById('myChart3').getContext('2d');
     // Get the canvas element
 
     // Create the chart
@@ -62,6 +79,48 @@
     // Set the width and height of the canvas element
     ctx.canvas.width = 100;
     ctx.canvas.height = 100;
+
+    var myChart2 = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: ['Male', 'Female'], // Replace with your own labels
+            datasets: [{
+            label: 'Data',
+            data: [{{male_teachers_perc}}, {{female_teachers_perc}}], // Replace with your own data
+            backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 205, 86, 0.5)'], // Replace with your own colors
+            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 205, 86, 1)'], // Replace with your own colors
+            borderWidth: 1
+            }]
+        },
+        options: {
+            // Specify chart options here
+        }
+        });
+        // Set the width and height of the canvas element
+        ctx2.canvas.width = 100;
+        ctx2.canvas.height = 100;
+
+        {% autoescape off %}
+        var myChart3 = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: {{section_type_arr}}, // Replace with your own labels
+                datasets: [{
+                label: 'Data',
+                data: {{attendance_count_arr}}, // Replace with your own data
+                backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+                }]
+            },
+            options: {
+                // Specify chart options here
+            }
+            });
+            ctx3.canvas.width = 100;
+            ctx3.canvas.height = 100;
+        {% endautoescape %}
+    
 
 </script>
 
