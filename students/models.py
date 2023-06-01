@@ -70,7 +70,7 @@ class StudentInfo(models.Model):
 
 class AttendanceManager(models.Manager):
     def create_attendance(self, student_class, student_id):
-        student_obj = StudentInfo.objects.get(
+        student_obj = StudentInfo.objects.filter(
             class_type__class_short_form=student_class,
             admission_id=student_id
         )

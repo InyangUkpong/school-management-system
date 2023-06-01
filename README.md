@@ -4,7 +4,7 @@ School Management System (SMS) is a web application that has an interactive dash
 
 ---
 
-## SMS Front End
+<!-- ## SMS Front End -->
 
 <!-- <https://cleanhub.netlify.app> -->
 
