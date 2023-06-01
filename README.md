@@ -9,8 +9,8 @@ School Management System (SMS) is a web application that has an interactive dash
 <!-- <https://cleanhub.netlify.app> -->
 
 <!-- > You can visit the link to see how the front end was designed, the technology used for the front end is ReactJs -->
-
----
+<!-- 
+--- -->
 
 ## Team Members
 
