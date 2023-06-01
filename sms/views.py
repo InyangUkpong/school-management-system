@@ -29,10 +29,9 @@ def index(request):
     
     try:
         teacher_pic = TeacherInfo.objects.filter(user=logged_in_user).first().teacher_img.url
-    except TeacherInfo.DoesNotExist:
+    except (TeacherInfo.DoesNotExist, AttributeError):
         teacher_pic="https://ih1.redbubble.net/image.1380092762.9137/st,small,507x507-pad,600x600,f8f8f8.jpg"
         
-   
     for _ in all_students:
         total_students+=1
     for _ in all_teachers:
