@@ -16,7 +16,7 @@ def user_login(request):
 
             if user:
                 login(request, user)
-                return redirect("home")
+                return redirect("dashboard")
             else:
                 messages.error(request, "Invalid User or Password")
                 return redirect("login")

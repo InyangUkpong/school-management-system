@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.utils import IntegrityError
 from students.models import Attendance
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -26,9 +27,11 @@ class StudentAttendance(APIView):
         try:
             Attendance.objects.create_attendance(student_class, student_id)
             return Response({"Status": "Attendance Created Successfully"}, status=status.HTTP_200_OK)
+        # except IntegrityError:
+        #     return Response({"Status": "Attendance already exists"}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as err:
-            print(err)
-            return Response({"Status": "Attendance has already been taken"}, status=status.HTTP_400_BAD_REQUEST)
+            print("ErRor", err)
+            return Response({"Status": "Bad request"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ResultInfo(APIView):

@@ -71,9 +71,10 @@ class StudentInfo(models.Model):
 class AttendanceManager(models.Manager):
     def create_attendance(self, student_class, student_id):
         student_obj = StudentInfo.objects.filter(
-            class_type__class_short_form=student_class,
+            #class_type__class_short_form=student_class,
+            class_type=student_class,
             admission_id=student_id
-        )
+        ).first()
         attendance_obj = Attendance.objects.create(student=student_obj, status=1)
         return attendance_obj
 

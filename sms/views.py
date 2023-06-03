@@ -5,7 +5,7 @@ from teachers.models import TeacherInfo
 from django.contrib.auth.models import User
 
 @login_required
-def index(request):
+def dashboard(request):
     all_students = StudentInfo.objects.all()
     all_teachers = TeacherInfo.objects.all()
     all_attendance = Attendance.objects.all()
@@ -78,7 +78,7 @@ def index(request):
     }
 
    
-    return render(request, "home.html", context=context)
+    return render(request, "pages/dashboard.html", context=context)
 
 
 
