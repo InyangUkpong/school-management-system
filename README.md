@@ -1,89 +1,94 @@
- # Introduction
+# Student Management System
 
-School Management System (SMS) is a web application that has an interactive dashboard built in for teachers where teachers can monitor student's activity like attendance, results, and enrollment.
+This is a student management system built using **Django 4**, **HTML 5**, **CSS 3**, and **Bootstrap 5**.
 
----
+![plot](https://github.com/BobsProgrammingAcademy/Student-Management-System/blob/master/students/static/images/homepage.png?raw=true)
 
-<!-- ## SMS Front End -->
 
-<!-- <https://cleanhub.netlify.app> -->
+## Table of Contents 
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Run the application](#run-the-application)
+- [View the application](#view-the-application)
+- [Copyright and License](#copyright-and-license)
 
-<!-- > You can visit the link to see how the front end was designed, the technology used for the front end is ReactJs -->
-<!-- 
---- -->
 
-## Team Members
+## Prerequisites
 
-[Inyang Ukpong](github.com/InyangUkpong) : Backend + Front End
-Oghenekome Igho: Backend
-Joseph Bamisaye: Front-End
-Alphonsus Oshiole: Frontend
-Each member is more comfortable with the roles
+Install the following prerequisites:
 
----
+1. [Python 3.10.4 or higher](https://www.python.org/downloads/)
+2. [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Technologies used
 
-- Python
-- Django Rest Framework
-- Javascript
-- Bootstrap/CSS
-- SQlite
+## Installation
 
----
+### 1. Create a virtual environment
 
-## Packages/Dependencies used
+From the **root** directory run:
 
-- react-router-dom
-- react-slick
-- slick-carousel
-- react-toastify
-- axios
-- react-redux
-- reduxjs/toolkit
-- fontawesome
+```bash
+python -m venv venv
+```
 
----
+### 2. Activate the virtual environment
 
-<!-- ## Challenge statement
+From the **root** directory run:
 
-The problem the Portfolio Project is intended to solve is the following:
-To help users have an easier access to waste disposal systems in the state.
-Motivate people into proper disposal and recycling of their waste products.
-Educate people on the importance of proper waste disposal
+On macOS:
 
-Who the users will be
-Tertiary institutions student with Smartphones
-Working professionals with smartphones
+```bash
+source venv/bin/activate
+```
 
-Is this project relevant or dependent on a specific locale?
-Relevant to people of Lagos & Ibadan and may later be expanded to major cities in Nigeria
+On Windows:
 
-Risks
-No risk
+```bash
+venv\scripts\activate
+```
 
-Infrastructure
-Describe your process for branching and merging in your team’s repository (e.g. GitHub flow, Picking the right branch-merge strategy)
-Describe your strategy for deployment
-Describe how you will populate your app with data
-Describe what tools, automation or process you will use for testing
+### 3. Install required dependencies
 
-Existing Solutions
-PSP
-Lagos waste management
-List any similar products or solutions that currently exist.
-For each item in the list, explain similarities and differences
+From the **root** directory run:
 
----
+```bash
+pip install -r requirements.txt
+```
 
-## Available Scripts
+### 4. Run migrations
 
-In the project directory, you can run:
+From the **root** directory run:
 
-### `npm start`
+```bash
+python manage.py makemigrations
+```
+```bash
+python manage.py migrate
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 5. Create an admin user to access the Django Admin interface
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console. -->
+From the **root** directory run:
+
+```bash
+python manage.py createsuperuser
+```
+
+When prompted, enter a username, email, and password.
+
+## Run the application
+
+From the **root** directory run:
+
+```bash
+python manage.py runserver
+```
+
+## View the application
+
+Go to http://127.0.0.1:8000/ to view the application.
+
+
+## Copyright and License
+
+Code released under the MIT license.

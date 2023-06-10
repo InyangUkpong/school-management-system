@@ -1,78 +1,73 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import *
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from django.contrib import messages
-from .forms import CreateStudent
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse
+
+from .models import Student
+from .forms import StudentForm
+
 
 # Create your views here.
-def student_list(request):
-    students = StudentInfo.objects.all()
-    paginator = Paginator(students, 10)
-    page = request.GET.get('page')
-    paged_students = paginator.get_page(page)
-
-    context = {
-        "students": paged_students
-    }
-    return render(request, "students/student_list.html", context)
+def index(request):
+  return render(request, 'students/index.html', {
+    'students': Student.objects.all()
+  })
 
 
-def single_student(request, student_id):
-    single_student = get_object_or_404(StudentInfo, pk=student_id)
-    context = {
-        "single_student": single_student
-    }
-    return render(request, "students/student_details.html", context)
+def view_student(request, id):
+  return HttpResponseRedirect(reverse('index'))
 
 
-def student_regi(request):
-    if request.method == "POST":
-        forms = CreateStudent(request.POST)
+def add(request):
+  if request.method == 'POST':
+    form = StudentForm(request.POST)
+    if form.is_valid():
+      new_student_number = form.cleaned_data['student_number']
+      new_first_name = form.cleaned_data['first_name']
+      new_last_name = form.cleaned_data['last_name']
+      new_email = form.cleaned_data['email']
+      new_field_of_study = form.cleaned_data['field_of_study']
+      new_gpa = form.cleaned_data['gpa']
 
-        if forms.is_valid():
-            forms.save()
-        messages.success(request, "Student Registration Successfully!")
-        return redirect("student_list")
-    else:
-        forms = CreateStudent()
-
-    context = {
-        "forms": forms
-    }
-    return render(request, "students/registration.html", context)
-
-
-def edit_student(request, pk):
-    student_edit = StudentInfo.objects.get(id=pk)
-    edit_forms = CreateStudent(instance=student_edit)
-
-    if request.method == "POST":
-        edit_forms = CreateStudent(request.POST, instance=student_edit)
-
-        if edit_forms.is_valid():
-            edit_forms.save()
-            messages.success(request, "Edit Student Info Successfully!")
-            return redirect("student_list")
-
-    context = {
-        "edit_forms": edit_forms
-    }
-    return render(request, "students/edit_student.html", context)
+      new_student = Student(
+        student_number=new_student_number,
+        first_name=new_first_name,
+        last_name=new_last_name,
+        email=new_email,
+        field_of_study=new_field_of_study,
+        gpa=new_gpa
+      )
+      new_student.save()
+      return render(request, 'students/add.html', {
+        'form': StudentForm(),
+        'success': True
+      })
+  else:
+    form = StudentForm()
+  return render(request, 'students/add.html', {
+    'form': StudentForm()
+  })
 
 
-def delete_student(request, student_id):
-    student_delete = StudentInfo.objects.get(id=student_id)
-    student_delete.delete()
-    messages.success(request, "Delete Student Info Successfully")
-    return redirect("student_list")
+def edit(request, id):
+  if request.method == 'POST':
+    student = Student.objects.get(pk=id)
+    form = StudentForm(request.POST, instance=student)
+    if form.is_valid():
+      form.save()
+      return render(request, 'students/edit.html', {
+        'form': form,
+        'success': True
+      })
+  else:
+    student = Student.objects.get(pk=id)
+    form = StudentForm(instance=student)
+  return render(request, 'students/edit.html', {
+    'form': form
+  })
 
 
-def attendance_count(request):
-    class_name = request.GET.get("class_name", None)
-    if class_name:
-        student_list = StudentInfo.objects.filter(class_type__class_short_form=class_name)
-        context = {"student_list": student_list}
-    else:
-        context = {}
-    return render(request, "students/attendance_count.html", context)
-
+def delete(request, id):
+  if request.method == 'POST':
+    student = Student.objects.get(pk=id)
+    student.delete()
+  return HttpResponseRedirect(reverse('index'))
