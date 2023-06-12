@@ -7,6 +7,10 @@ from django.urls import path
 from school import views
 from django.contrib.auth.views import LoginView,LogoutView
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home_view,name=''),
@@ -80,3 +84,7 @@ urlpatterns = [
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
 ]
+
+# add at the last
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
