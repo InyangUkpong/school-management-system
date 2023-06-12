@@ -89,6 +89,11 @@ python manage.py runserver
 Go to http://127.0.0.1:8000/ to view the application.
 
 
-## Copyright and License
+## Authors
+
+1. [Inyang Ukpong](https://github.com/InyangUkpong/)
+2. [Oghenkome Igho](https://github.com/meetkome/)
+3. [Joseph Bamisaye](https://github.com/joethesaint/)
+4. [Alphonsus Oshiole](https://github.com/Alphydoo/)
 
 Code released under the MIT license.
