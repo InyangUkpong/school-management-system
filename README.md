@@ -11,7 +11,7 @@ School Management System (SMS) is a web application that has an interactive dash
 
 ---
 
-## SMS Front End
+## School Management 
 
 <!-- <https://cleanhub.netlify.app>
 
@@ -34,8 +34,6 @@ Each member is more comfortable with the roles
 
 - Python
 - Django
-- Bootstrap / CSS
-- Javascript
 - SQlite
 
 ---
@@ -43,23 +41,18 @@ Each member is more comfortable with the roles
 ## Packages/Dependencies used
 
 - django
-- djangorestframework
+- django-widget-tweaks
+- asgiref
 - pytz
-- pillow
 - sqlparse
-<!-- - axios
-- react-redux
-- reduxjs/toolkit
-- fontawesome -->
 
 ---
 
 <!-- ## Challenge statement -->
 <!-- 
-The problem the Portfolio Project is intended to solve is the following:
-To help users have an easier access to waste disposal systems in the state.
-Motivate people into proper disposal and recycling of their waste products.
-Educate people on the importance of proper waste disposal
+The problem the Portfolio Project is the deployment process, we tried using pythonanywhere but we 
+had issues a 404 error which we couldn't resolve due to the time constraint, we later tried using vercel since
+railway.app gives a free trial and our trial expired. vercel also showed us a 404 Code Not FOUND
 
 Who the users will be
 Tertiary institutions student with Smartphones
