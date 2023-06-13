@@ -1,29 +1,38 @@
 
 ![School Management System](static/images/readme_images/smsystem-app.png)
 
-
-
-
-
-
 # Introduction
 
-School Management System (SMS) is a web application that has an interactive dashboard built in for teachers where teachers can monitor student's activity like attendance, results, and enrollment.
+School Management System (SMS) is a web application that focuses on students and teachers records including student's attendance. There are three main categories of this app which are:
+
+1. Admin Panel
+2. Student's Panel and
+3. Teacher's Panel.
 
 ---
 
-## School Management 
+## Features of School Manangement System
 
-<!-- <https://cleanhub.netlify.app>
+Student Panel
+Teacher Panel
+Admin Panel
+Manage Requests
+Student Management
+Teacher Management
+Student Attendance Management
+View Fees, Pending
+Notice Board
 
-> You can visit the link to see how the front end was designed, the technology used for the front end is ReactJs -->
+<https://smsystem.up.railway.app/>
+
+You can visit the link to see how the interface of the app looks
 
 ---
 
 ## Team Members
 
-[Inyang Ukpong](github.com/InyangUkpong) : Backend plus frontend\
-[Oghenekome Igho](github.com/meetkome) : Backend plus frontend\
+[Inyang Ukpong](github.com/InyangUkpong) : FullStack Backend + Frontend\
+[Oghenekome Igho](github.com/meetkome) : Backend + frontend\
 [Joseph Bamisaye](github.com/Joethesaint) : Frontend\
 Alphonsus Oshiole: Front-End
 
@@ -35,7 +44,9 @@ Each member is more comfortable with the roles
 
 - Python
 - Django
-- SQlite
+- Bootstrap
+- PostgreSQL
+- Railway
 
 ---
 
@@ -46,37 +57,19 @@ Each member is more comfortable with the roles
 - asgiref
 - pytz
 - sqlparse
+- psycopg2
 
 ---
 
-<!-- ## Challenge statement -->
-<!-- 
-The problem the Portfolio Project is the deployment process, we tried using pythonanywhere but we 
-had issues a 404 error which we couldn't resolve due to the time constraint, we later tried using vercel since
-railway.app gives a free trial and our trial expired. vercel also showed us a 404 Code Not FOUND
+## Challenge statement
 
-Who the users will be
-Tertiary institutions student with Smartphones
-Working professionals with smartphones
+The challenges we faced with our the Portfolio Project was during the deployment process, we tried using pythonanywhere but got a 404 error which we couldn't resolve due to the time constraint, we later tried using vercel but due to issues it has with GitHub as we linked our Team's Project Repo, we also experienced difficulties due to compatibility issues and improper configurations as seen below.
 
-Is this project relevant or dependent on a specific locale?
-Relevant to people of Lagos & Ibadan and may later be expanded to major cities in Nigeria
+![Vercel Configuration Error](static/images/readme_images/vercel-deployment-error.png)
 
-Risks
-No risk
+---
 
-Infrastructure
-Describe your process for branching and merging in your team’s repository (e.g. GitHub flow, Picking the right branch-merge strategy)
-Describe your strategy for deployment
-Describe how you will populate your app with data
-Describe what tools, automation or process you will use for testing
-
-Existing Solutions
-PSP
-Lagos waste management
-List any similar products or solutions that currently exist.
-For each item in the list, explain similarities and differences -->
-
+Eventually we decided to try using the Railway App and also experienced some challenges during the first few tries of deployment, where we faced compatibility isssues with the version of the psycopg2 dependency in the requirements.txt were, after rectifying this, we experienced a successful deployment.
 
 ## Available Scripts
 
@@ -84,7 +77,7 @@ In the project directory, you can run:
 
 ### `python3 manage.py runserver`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
 The page will reload when you make changes.\
