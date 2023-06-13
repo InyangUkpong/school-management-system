@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -54,6 +53,39 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'schoolmanagement.urls'
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+# REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
+
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(REPOSITORY_ROOT, 'static/')
+
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(REPOSITORY_ROOT, 'media/')
+
+# STATICFILES_DIRS = (
+#     os.path.join(os.path.dirname(__file__), "static")
+# )
+
 
 TEMPLATES = [
     {
@@ -127,13 +159,17 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-MEDIA_URL = '/media/'
-os.path.join(BASE_DIR, 'media')
-os.path.join(BASE_DIR, 'static')
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# MEDIA_URL = '/media/'
+# os.path.join(BASE_DIR, 'media')
+# os.path.join(BASE_DIR, 'static')
+
+
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 
 
