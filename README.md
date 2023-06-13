@@ -47,6 +47,7 @@ Each member is more comfortable with the roles
 - sqlparse
 
 ---
+![Alt Text](static/images/admin-icn.png)
 
 <!-- ## Challenge statement -->
 <!-- 
