@@ -31,10 +31,10 @@ You can visit the link to see how the interface of the app looks
 
 ## Team Members
 
-[Inyang Ukpong](github.com/InyangUkpong) : Backend + Frontend (FullStack)
-[Oghenekome Igho](github.com/meetkome) : Backend + frontend
-[Joseph Bamisaye](github.com/Joethesaint) : Frontend
-[Alphonsus Oshiole](github.com/Alphydoo) : Frontend
+-[Inyang Ukpong](github.com/InyangUkpong) : Backend + Frontend (FullStack)
+-[Oghenekome Igho](github.com/meetkome) : Backend + frontend
+-[Joseph Bamisaye](github.com/Joethesaint) : Frontend
+-[Alphonsus Oshiole](github.com/Alphydoo) : Frontend
 
 Each member is more comfortable with the roles
 
