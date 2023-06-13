@@ -36,8 +36,6 @@ You can visit the link to see how the interface of the app looks
 [Joseph Bamisaye](github.com/Joethesaint) : Frontend
 [Alphonsus Oshiole](github.com/Alphydoo) : Frontend
 
-Alphonsus Oshiole: Front-End
-
 Each member is more comfortable with the roles
 
 ---
