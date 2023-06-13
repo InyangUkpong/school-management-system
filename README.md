@@ -63,13 +63,14 @@ Each member is more comfortable with the roles
 
 ## Challenge statement
 
-The challenges we faced with our the Portfolio Project was during the deployment process, we tried using pythonanywhere but got a 404 error which we couldn't resolve due to the time constraint, we later tried using vercel but due to issues it has with GitHub as we linked our Team's Project Repo, we also experienced difficulties due to compatibility issues and improper configurations as seen below.
+The challenges we initially faced with our the Portfolio Project was during the deployment process, we tried using pythonanywhere but got a 404 error which we couldn't resolve due to the time constraint, we later tried using vercel but due to issues it has with GitHub as we linked our Team's Project Repo, we did our research and discovered we needed to change our current database db.sqlite3 to PostgreSQL, we opted using a tool PgAdmin for Postgres but later discovered we could configure our Django app with Postgresql on vercel. After making the neccessary recommended  configurations, there we still experienced difficulties due to compatibility issues and was shown an error of improper configurations as seen below.
 
 ![Vercel Configuration Error](static/images/readme_images/vercel-deployment-error.png)
 
+we tried to do some configurations f
 ---
 
-Eventually we decided to try using the Railway App and also experienced some challenges during the first few tries of deployment, where we faced compatibility isssues with the version of the psycopg2 dependency in the requirements.txt were, after rectifying this, we experienced a successful deployment.
+Eventually we decided to try using the Railway App and also experienced some challenges during the first few tries of deployment, where we faced compatibility isssues with the version of the psycopg2 dependency in the requirements.txt, after rectifying this, we finally experienced a successful deployment.
 
 ## Available Scripts
 
