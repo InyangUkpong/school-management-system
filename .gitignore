@@ -8,5 +8,3 @@ venv/
 !*/migrations/__init__.py
 .idea
 .idea/
-LICENSE/
-*.LICENSE
