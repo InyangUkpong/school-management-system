@@ -1,6 +1,6 @@
-**Log on to codeastro.com for more projects!**
+**Log on to https://smsystem.up.railway.app/ to view project!**
 
-**Developed By Sumit Kumar**
+**ALX Webstack Demo Project TeamInyangKomeJoe & Co**
 
 **Instructions**
 - Install the Requirements: pip install -r requirements.txt
